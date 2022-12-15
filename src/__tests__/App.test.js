@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
+import NumberOfEvents from "../NumberOfEvents";
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
 
@@ -56,4 +57,33 @@ describe('<App/> integration', () => {
         expect(AppWrapper.state('events')).toEqual(allEvents);
         AppWrapper.unmount();
     });
+
+    test('Check if number of events value is passed as prop to NumberOfEvents component in App', () => {
+        const AppWrapper = mount(<App />);
+        AppWrapper.setState({ numberOfEvents: 12 });
+    
+        expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toBe(12);
+        AppWrapper.unmount();
+      });
+
+    test('Check if rendered number of events matches the input in NumberOfEvents', () => {
+        const AppWrapper = mount(<App />);
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+        NumberOfEventsWrapper.find('.number-events-input').simulate('change', {
+            target: { value: 24 }
+        });
+        expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(24);
+        AppWrapper.unmount();
+    });
+
+    test("check if events match the content of the mock data", async () => {
+        const AppWrapper = mount(<App />);
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+        NumberOfEventsWrapper.find(".number-events-input").simulate("change", {
+          target: { value: 2 },
+        });
+        await getEvents();
+        expect(AppWrapper.state("events")).toEqual(mockData.slice(0, 2));
+        AppWrapper.unmount();
+      });
 });
