@@ -76,6 +76,16 @@ describe('<App/> integration', () => {
         AppWrapper.unmount();
     });
 
+    // test('number of events displayed on the page matching the number input entered', async () => {
+    //     const AppWrapper = mount(<App />);
+    //     const eventObject = { target: { value: 3 } };
+    //     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    //     await NumberOfEventsWrapper.instance().handleInputChanged(eventObject);
+    //     await getEvents();
+    //     expect(AppWrapper.state('events')).toHaveLength(3);
+    //     AppWrapper.unmount();
+    //   });
+
     test("check if events match the content of the mock data", async () => {
         const AppWrapper = mount(<App />);
         const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);

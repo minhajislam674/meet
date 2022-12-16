@@ -13,6 +13,7 @@ class CitySearch extends Component {
     });
     this.props.updateEvents(suggestion);
     }
+    
     handleInputChanged = (event) => {
     const value = event.target.value;
     const suggestions = this.props.locations.filter((location) => {
@@ -26,10 +27,11 @@ class CitySearch extends Component {
     render() {
         return(
             <div className="CitySearch">
+
                 <input
                     type="text"
                     className="city"
-                    placeholder="Search for a city"
+                    placeholder="Choose your nearest city"
                     value={this.state.query}
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}

@@ -8,7 +8,7 @@ class NumberOfEvents extends Component {
     this.setState({ num: value });
     this.props.updateNumberOfEvents(value);
   };
-  
+
     componentDidMount() {
         this.setState({ num: this.props.num || 32 });
     }
@@ -16,7 +16,7 @@ class NumberOfEvents extends Component {
     render() {
         return (
             <div className="number-events">
-                <label> Define number of events you want to display: </label>
+                <label> No. of events: </label>
                 <input
                     type="number"
                     className="number-events-input"
