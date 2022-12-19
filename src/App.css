@@ -134,6 +134,9 @@ input[type="number"]:focus {
   cursor: pointer;
 }
 
+.top-container {
+  height: 200px;
+}
 
 .hide-details-btn{
   width: 200px;
