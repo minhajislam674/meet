@@ -42,12 +42,18 @@ export const extractLocations = (events) => {
     return locations;
   };
 
-export const getEvents = async () => {
+export const getEvents = async (events) => {
   NProgress.start(); //display progress bars to show app is loading data
 
   if (window.location.href.startsWith('http://localhost')) {
     NProgress.done();
     return mockData;
+  }
+
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data?JSON.parse(events).events:[];;
   }
 
   const token = await getAccessToken(); //check for an access token 
