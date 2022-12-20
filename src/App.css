@@ -2,7 +2,6 @@
 
 .App {
   text-align: center;
-  padding: 2% 5%;
 }
 
 .App * {
@@ -23,6 +22,17 @@ p {
 }
 .showSuggestions {
   display: block;
+}
+
+.alert p {
+  border-radius: 5px;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.5s ease-in;
 }
 
 input[type="text"],
@@ -46,7 +56,9 @@ input[type="number"]:focus {
 .city {
   width: 250px;
 }
-
+.event-numbers-text{
+  color: white;
+}
 .CitySearch {
   display: flex;
   flex-direction: column;
@@ -261,7 +273,6 @@ a.details-link {
 }
 .btn-text {
   float: right;
-  margin: 11px 11px 0 0;
   color: #fff;
   font-size: 14px;
   letter-spacing: 0.2px;

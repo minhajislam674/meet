@@ -42,35 +42,33 @@ class CitySearch extends Component {
 
     render() {
         return(
-            <div className="CitySearch">
-                <div className="info-alert">
-                    <InfoAlert text={this.state.infoText} style={{color: "red"}} />
+            <>
+                <InfoAlert text={this.state.infoText} />
+                <div className="CitySearch">
+                    <input
+                        type="text"
+                        className="city"
+                        placeholder="Choose your nearest city"
+                        value={this.state.query}
+                        onChange={this.handleInputChanged}
+                        onFocus={() => { this.state.infoText ? this.setState({ showSuggestions: false }) : this.setState({ showSuggestions: true })}}
+                        onBlur={() => { this.setState({ showSuggestions: false }) }}
+                    />
+                        <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none'}}>
+                            {this.state.suggestions.map((suggestion) => (
+                                <li 
+                                    key={suggestion}
+                                    onMouseDown={() => this.handleItemClicked(suggestion)}
+                                >
+                                    {suggestion}
+                                </li>
+                            ))}
+                                <li key='all' onMouseDown={() => this.handleItemClicked("all")}>
+                                    <b>See all cities</b>
+                                </li>
+                        </ul>
                 </div>
-                <input
-                    type="text"
-                    className="city"
-                    placeholder="Choose your nearest city"
-                    value={this.state.query}
-                    onChange={this.handleInputChanged}
-                    onFocus={() => { this.state.infoText ? this.setState({ showSuggestions: false }) : this.setState({ showSuggestions: true })}}
-                    onBlur={() => { this.setState({ showSuggestions: false }) }}
-                />
-                    <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none'}}>
-                        {this.state.suggestions.map((suggestion) => (
-                            <li 
-                                key={suggestion}
-                                onMouseDown={() => this.handleItemClicked(suggestion)}
-                            >
-                                {suggestion}
-                            </li>
-                        ))}
-                            <li key='all' onMouseDown={() => this.handleItemClicked("all")}>
-                                <b>See all cities</b>
-                            </li>
-                    </ul>
-                    
-
-            </div>
+            </>
         )
     }
 }
