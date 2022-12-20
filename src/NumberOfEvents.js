@@ -30,6 +30,7 @@ class NumberOfEvents extends Component {
                     onChange={(event) => {
                         this.changeNumber(event.target.value);
                       }}
+                    aria-label="number of events"
                 >
                 </input>
             </div>

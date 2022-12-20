@@ -49,6 +49,7 @@ class CitySearch extends Component {
                         type="text"
                         className="city"
                         placeholder="Choose your nearest city"
+                        aria-label="Search for cities"
                         value={this.state.query}
                         onChange={this.handleInputChanged}
                         onFocus={() => { this.state.infoText ? this.setState({ showSuggestions: false }) : this.setState({ showSuggestions: true })}}
