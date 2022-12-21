@@ -24,9 +24,7 @@ class Event extends Component {
                 <h1 className="summary">
                     {event.summary}
                 </h1>
-                <p className="description">
-                    {event.description}
-                </p>
+
                 <p className="event-start">
                     {new Date(event.start.dateTime).toString()}
                 </p>
@@ -36,6 +34,9 @@ class Event extends Component {
 
                 {this.state.detailsView ? (
                     <div className="details">
+                        <p className="description">
+                            {event.description}
+                        </p>
                         <a href={event.htmlLink} className="details-link">
                             Go to event page!
                         </a>
@@ -50,13 +51,6 @@ class Event extends Component {
                 </button>   
 
                 )}
-
-
-
-
-
-
-
 
             </div>
         )
