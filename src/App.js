@@ -6,14 +6,15 @@ import NumberOfEvents from './NumberOfEvents';
 import { OfflineAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
 import EventGenre from './EventGenre';
-import { getEvents, extractLocations, checkToken, getAccessToken } from'./api';
+import { mockData } from './mock-data';
+import { getEvents, extractLocations, getAccessToken } from'./api';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 class App extends Component {
   state = {
-    events: [],
-    locations: [],
+    events: mockData,
+    locations: extractLocations(mockData),
     numberOfEvents: 32,
     offlineText: '',
     showWelcomeScreen: undefined
@@ -49,12 +50,6 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
-    const accessToken = localStorage.getItem('access_token');
-    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    if ((code || isTokenValid) && this.mounted) {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({
@@ -62,7 +57,7 @@ class App extends Component {
             locations: extractLocations(events)});
         }
       });
-    }
+    
     
     if (!navigator.onLine) {
       this.setState({
@@ -82,9 +77,13 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />;
     return (
       <div className="App">
+        <div className='hero-container'>
+          <h2> FIND YOUR </h2>
+          <p> next big tech event. </p>
+        </div>
+
         <OfflineAlert text={this.state.offlineText}/>
         <div className='top-container'> 
           <CitySearch 
@@ -98,8 +97,8 @@ class App extends Component {
 
         <div className='data-vis-wrapper'>
           <EventGenre events ={this.state.events} />
-          <ResponsiveContainer height={400} >
-            <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
+          <ResponsiveContainer>
+            <ScatterChart margin={{right: 50}}>
               <CartesianGrid />
               <XAxis type="category" dataKey="city" name="city" stroke="white" />
               <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} stroke="white" />

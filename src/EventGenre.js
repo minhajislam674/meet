@@ -19,14 +19,14 @@ const EventGenre = ({ events }) => {
         setData(() => getData());}, [events]);
 
     return (
-        <ResponsiveContainer height={500}>
-            <PieChart width={500} height={500}>
+        <ResponsiveContainer height={400}>
+            <PieChart width={400} height={400}>
                 <Pie
                     data={data}
-                    cx="90%"
-                    cy="90%"
+                    cx="50%"
+                    cy="50%"
                     labelLine={false}
-                    outerRadius={80}
+                    outerRadius={120}
                     fill="#8884d8"
                     dataKey="value"
                     label={({ percent }) =>
@@ -37,7 +37,7 @@ const EventGenre = ({ events }) => {
                         <Cell key={`cell-${index}`} fill={colors[index]} />
                     ))}
                 </Pie>
-                  <Legend verticalAlign="bottom" height={35}/>
+                  <Legend verticalAlign="bottom" height={50}/>
             </PieChart>
         </ResponsiveContainer>
     )
