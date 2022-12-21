@@ -1,44 +1,46 @@
-import React, {useEffect, useState} from "react";
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import React, { useEffect, useState } from 'react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend} from 'recharts';
 
 
-const EventGenre = ({events}) => {
+const EventGenre = ({ events }) => {
+
     const [data, setData] = useState([]);
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AA3E98'];
+    const colors = ['#eae2e6', '#cd7389', '#9297C4', '#60bad7', '#fadba9'];
 
     useEffect(() => {
         const getData = () => {
             const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
-            const data = genres.map((genre)=>{
+            const data = genres.map(genre => {
                 const value = events.filter(event => event.summary.split(' ').includes(genre)).length
-                return {name: genre, value};
+                return { name: genre, value };
             })
             return data;
         };
-
-        setData(()=> getData()) }, [events]);
-
+        setData(() => getData());}, [events]);
 
     return (
-        <ResponsiveContainer>
-            <PieChart width={400} height={400}>
+        <ResponsiveContainer height={500}>
+            <PieChart width={500} height={500}>
                 <Pie
                     data={data}
-                    cx="50%"
-                    cy="50%"
+                    cx="90%"
+                    cy="90%"
                     labelLine={false}
-                    label={({ name, percent }) =>`${name} ${(percent * 100).toFixed(0)}%`}
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="value"
+                    label={({ percent }) =>
+                        `${(percent * 100).toFixed(0)}%`
+                    }
                 >
                     {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}   
+                        <Cell key={`cell-${index}`} fill={colors[index]} />
+                    ))}
                 </Pie>
+                  <Legend verticalAlign="bottom" height={35}/>
             </PieChart>
         </ResponsiveContainer>
     )
-};
+}
 
 export default EventGenre;

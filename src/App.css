@@ -96,8 +96,6 @@ input[type="number"]:focus {
 }
 
 @supports (display: grid) {
-
-
   .event {
     width: auto;
     min-height: auto;
@@ -125,7 +123,6 @@ input[type="number"]:focus {
   display: block;
 }
 
-
 .show-details-btn {
   width: 200px;
   height: 42px;
@@ -145,10 +142,6 @@ input[type="number"]:focus {
   transform: translateX(0.25em);
   cursor: pointer;
 }
-
-/* .top-container {
-  height: 500px;
-} */
 
 .events-container {
   margin-left: 20px;
@@ -179,8 +172,6 @@ a.details-link {
   color: #7A4C75;
   margin-bottom: 10px;
 }
-
-
 
 .name {
   font-size: 18px;
@@ -292,4 +283,5 @@ a.details-link {
     margin-top: 20px;
     grid-auto-rows: minmax(100px,auto);
   }
+
   }
