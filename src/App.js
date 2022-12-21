@@ -85,6 +85,10 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />;
     return (
       <div className="App">
+        <div className='hero-container'>
+          <h2> FIND YOUR </h2>
+          <p> next big tech event. </p>
+        </div>
         <OfflineAlert text={this.state.offlineText}/>
         <div className='top-container'> 
           <CitySearch 
@@ -99,7 +103,7 @@ class App extends Component {
         <div className='data-vis-wrapper'>
           <EventGenre events ={this.state.events} />
           <ResponsiveContainer height={400} >
-            <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
+            <ScatterChart margin={{right: 25}}>
               <CartesianGrid />
               <XAxis type="category" dataKey="city" name="city" stroke="white" />
               <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} stroke="white" />

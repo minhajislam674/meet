@@ -275,6 +275,18 @@ a.details-link {
   font-family: "Roboto";
 }
 
+.hero-container h2 {
+  color: #fff;
+  opacity: 0.8;
+}
+.hero-container p {
+  color: #fff;
+  font-size: xxx-large;
+  margin-top: -20px;
+  font-weight: 700;
+}
+
+
 @media screen and (min-width:700px){
   .EventList {
     display: grid;
@@ -283,5 +295,12 @@ a.details-link {
     margin-top: 20px;
     grid-auto-rows: minmax(100px,auto);
   }
-
+ .data-vis-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  margin-top: 20px;
+  grid-auto-rows: minmax(100px,auto);
+  margin-top: 50px;
+ }
   }
