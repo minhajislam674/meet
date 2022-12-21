@@ -146,9 +146,9 @@ input[type="number"]:focus {
   cursor: pointer;
 }
 
-.top-container {
-  height: 200px;
-}
+/* .top-container {
+  height: 500px;
+} */
 
 .events-container {
   margin-left: 20px;

@@ -5,7 +5,9 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { OfflineAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
+import EventGenre from './EventGenre';
 import { getEvents, extractLocations, checkToken, getAccessToken } from'./api';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 class App extends Component {
@@ -35,6 +37,16 @@ class App extends Component {
     });
   }
 
+  getData = () => {
+    const {locations, events} = this.state;
+    const data = locations.map((location)=>{
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(', ').shift()
+      return {city, number};
+    })
+    return data;
+  };
+
   async componentDidMount() {
     this.mounted = true;
     const accessToken = localStorage.getItem('access_token');
@@ -62,6 +74,7 @@ class App extends Component {
           offlineText: '',
         });
       }
+
   }
 
   componentWillUnmount() {
@@ -81,6 +94,19 @@ class App extends Component {
             num={this.state.numberOfEvents}
             updateNumberOfEvents={(num) => this.updateNumberOfEvents(num)}
           />
+        </div>
+
+        <div className='data-vis-wrapper'>
+          <EventGenre events ={this.state.events} />
+          <ResponsiveContainer height={400} >
+            <ScatterChart margin={{top: 20, right: 20, bottom: 20, left: 20,}}>
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" stroke="white" />
+              <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} stroke="white" />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter data={this.getData()} fill="#fadba9" />
+            </ScatterChart>
+          </ResponsiveContainer>
         </div>
 
         <div className='events-container'> 
