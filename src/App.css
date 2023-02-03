@@ -36,7 +36,7 @@ p {
 }
 h1.summary {
   font-size: larger;
-  color: #7a4c75;
+  color: #494f88;
 }
 
 input[type="text"],
@@ -47,21 +47,21 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
-  border: 2px solid #CD7389;
+  border: 2px solid #494f88;
   border-radius: 15px;
 }
 
 input[type="text"]:focus,
 input[type="number"]:focus {
 
-  background-color: rgb(255, 191, 191);
+  background-color: #e2eaf3;
 }
 
 .city {
   width: 250px;
 }
 .event-numbers-text{
-  color: white;
+  color: #494f88;
 }
 .CitySearch {
   display: flex;
@@ -86,7 +86,7 @@ input[type="number"]:focus {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #e2eaf3;
   cursor: default;
 }
 
@@ -96,7 +96,7 @@ input[type="number"]:focus {
 }
 
 .suggestions > li:hover {
-  background-color: #CD7389;
+  background-color: #a6aefc;
 }
 
 @supports (display: grid) {
@@ -108,19 +108,17 @@ input[type="number"]:focus {
   }
 }
 .event {
-  background-color: #F5F1F3;
+  background-color: #ffffff;
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
   border-radius: 4px;
   transition: 0.2s;
-  box-shadow: 1 black;
+  box-shadow: 1 #494f88;
+  padding-bottom: 55px;
 }
 
-.event:hover {
-  box-shadow: 0 0.5em 0.5em -0.4em rgb(6, 6, 6);
-  transform: translateY(0.25em);
-}
+
 
 .number-events{
   margin-top: 10px;;
@@ -130,10 +128,9 @@ input[type="number"]:focus {
 .show-details-btn {
   width: 150px;
   height: 30px;
-  background-color: #7A4C75;
+  background-color: #494f88;
   color: #eee;
-  border: 2px solid;
-  border-radius: 15px;
+  border: 0;
   box-sizing: border-box;
   display: block;
   font-weight: 700;
@@ -157,10 +154,9 @@ input[type="number"]:focus {
 .hide-details-btn{
   width: 150px;
   height: 30px;
-  background-color: #7A4C75;
+  background-color: #494f88;
   color: #eee;
-  border: 2px solid;
-  border-radius: 15px;
+  border: 0;
   box-sizing: border-box;
   display: block;
   font-weight: 700;
@@ -176,7 +172,7 @@ input[type="number"]:focus {
 }
 
 a.details-link {
-  color: #7A4C75;
+  color: #494f88;
   margin-bottom: 10px;
 }
 
@@ -244,50 +240,12 @@ a.details-link {
   margin: 1rem;
 }
 
-.google-btn {
-  width: 184px;
-  height: 42px;
-  margin: 1rem;
-  background-color: #4285f4;
-  border-radius: 2px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
-}
-.google-btn:hover {
-  box-shadow: 0 0 6px #4285f4;
-}
-.google-btn:active {
-  background: #1669f2;
-}
-.google-icon-wrapper {
-  position: absolute;
-  margin-top: 1px;
-  margin-left: 1px;
-  width: 40px;
-  height: 40px;
-  border-radius: 2px;
-  background-color: #fff;
-}
-.google-icon {
-  position: absolute;
-  margin-top: 11px;
-  margin-left: -8px;
-  width: 18px;
-  height: 18px;
-}
-.btn-text {
-  float: right;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  font-family: "Roboto";
-}
-
 .hero-container h2 {
-  color: #fff;
-  opacity: 0.8;
+  color: #494f88;
+
 }
 .hero-container p {
-  color: #fff;
+  color: #494f88;
   font-size: xxx-large;
   margin-top: -20px;
   font-weight: 700;

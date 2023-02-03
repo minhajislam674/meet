@@ -31,6 +31,7 @@ class App extends Component {
     });
   }
 
+
   updateNumberOfEvents(number) {
     this.setState({
       numberOfEvents: number,
@@ -83,10 +84,11 @@ class App extends Component {
 
   render() {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />;
+
     return (
       <div className="App">
         <div className='hero-container'>
-          <h2> FIND YOUR </h2>
+          <h2> Find your </h2>
           <p> next big tech event. </p>
         </div>
         <OfflineAlert text={this.state.offlineText}/>
@@ -104,11 +106,11 @@ class App extends Component {
           <EventGenre events ={this.state.events} />
           <ResponsiveContainer height={400} >
             <ScatterChart margin={{right: 25}}>
-              <CartesianGrid />
-              <XAxis type="category" dataKey="city" name="city" stroke="white" />
-              <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} stroke="white" />
+              <CartesianGrid stroke="#494f88"  />
+              <XAxis type="category" dataKey="city" name="city" stroke="#494f88" />
+              <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} stroke="#494f88" />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter data={this.getData()} fill="#fadba9" />
+              <Scatter data={this.getData()} fill="#494f88" />
             </ScatterChart>
           </ResponsiveContainer>
         </div>
@@ -116,8 +118,13 @@ class App extends Component {
         <div className='events-container'> 
           <EventList events={this.state.events} />
         </div>
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
+        <WelcomeScreen
+          showWelcomeScreen={this.state.showWelcomeScreen}
+          getAccessToken={() => { getAccessToken() }}
+        />
+        
       </div>
+      
     );
   }
 }
