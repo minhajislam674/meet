@@ -7,7 +7,7 @@ function WelcomeScreen(props) {
             <div className="WelcomeScreen">
                 <div className="log-in">
                     <h1 id="welcome-headline">Welcome to the Meet app</h1>
-                    <p id="welcome-text">Log in to see upcoming events around the world for full-stack developers</p>
+                    <p id="welcome-text">Log in to see upcoming events around the world for full-stack developers.</p>
                     <div className="button_cont" align="center">
                         <div className="google-btn">
                             <div className="google-icon-wrapper">
@@ -17,6 +17,9 @@ function WelcomeScreen(props) {
                                 <b>Sign in with google</b>
                             </button>
                         </div>
+                        {/* <button onClick={() => { props.guestLogin() }}  className="guest-btn-text" aria-label="guest sign in">
+                                <b>Continue as a guest</b>
+                        </button> */}
                     </div>
                     <a id="welcome-privacy" href="https://minhajislam674.github.io/meet/privacy.html" rel="nofollow noopener">Privacy policy</a>
                 </div>
