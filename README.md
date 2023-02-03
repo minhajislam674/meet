@@ -1,14 +1,26 @@
 # Meet App
 
-## Project description
+> This is a serverless, progressive web application (PWA) built with React using a test-driven development (TDD) technique.
+> The app uses the Google Calendar API to fetch upcoming events.
 
-This is a serverless, progressive web application (PWA) built with React using a test-driven development (TDD) technique. The app uses the Google Calendar API to fetch upcoming events.
+Live Demo: https://minhajislam674.github.io/meet/
 
-## Live Demo
+### Users can sign in with google.
 
-Deployed App: https://minhajislam674.github.io/meet/
+<img
+  src="src/assets/login-view.png">
 
-## Key Features
+### After successful authentication, users can see a scatter plot showing the number of events by city and a pie chart showing the event type.
+
+<img
+  src="src/assets/home-view.png">
+
+### Filter events by city and show/hide event details.
+
+<img
+  src="src/assets/events-view.png">
+
+## Features
 
 - Filter events by city.
 - Show/hide event details.
