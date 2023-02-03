@@ -5,29 +5,20 @@
 
 Live Demo: https://minhajislam674.github.io/meet/
 
-### Users can sign in with google.
+1. Authenticate user with google
 
 <img
-  src="src/assets/login-view.png">
+  src="assets/login-view.png">
 
-### After successful authentication, users can see a scatter plot showing the number of events by city and a pie chart showing the event type.
-
-<img
-  src="src/assets/home-view.png">
-
-### Filter events by city and show/hide event details.
+2. After successful authentication, users can see a scatter plot showing the number of events by city and a pie chart showing the event type
 
 <img
-  src="src/assets/events-view.png">
+  src="assets/home-view.png">
 
-## Features
+3. Filter events by city and show/hide event details
 
-- Filter events by city.
-- Show/hide event details.
-- Specify number of events.
-- Use the app when offline.
-- Add an app shortcut to the home screen.
-- View a chart showing the number of upcoming events by city.
+<img
+  src="/assets/events-view.png">
 
 ## Built with
 
@@ -35,6 +26,25 @@ Live Demo: https://minhajislam674.github.io/meet/
 - AWS lambda
 - TDD/BDD methodology
 - Google Calendar API
+
+## Getting Started
+
+1. Clone the project
+2. Install all dependencies mentioned in package.json
+3. cd to the project directory
+4. Run it by:
+
+```sh
+npm start
+```
+
+## Contributing
+
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 
 ## User Stories
 
